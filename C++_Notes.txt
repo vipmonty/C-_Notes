@@ -26,3 +26,4 @@ std::string message2 = ", I also weigh ";
 PRINTOUT INT WITH STR
 std::cout << message << my_age << message2 << weight << std::endl;
 
+  from worklaptop
