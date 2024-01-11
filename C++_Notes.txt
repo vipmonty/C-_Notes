@@ -1,0 +1,28 @@
+GITBASH COMMAND TO BUILD .CPP FILE
+g++ filename.cpp -o filename.exe
+
+GITBASH COMMAND TO RUN .exe FILE AFTER BUILD
+./filename.exe
+
+IMPORT STD LIBRARY// LIKE IMPORT STATEMENT IN PYTHON
+#include <iostream>
+
+CREATING A FUNCTION
+int main() {
+    std::cout << 'Hello World';
+    return 0;
+};
+
+CREATING A VARIABLE
+#include <string>
+int num1 = 8
+int num2 = 24
+int my_age = 36;
+double weight = 122;
+std::string message = "My name is Viphakone Monty and I am ";
+std::string message2 = ", I also weigh ";
+
+
+PRINTOUT INT WITH STR
+std::cout << message << my_age << message2 << weight << std::endl;
+
