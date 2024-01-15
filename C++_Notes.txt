@@ -26,3 +26,10 @@ std::string message2 = ", I also weigh ";
 PRINTOUT INT WITH STR
 std::cout << message << my_age << message2 << weight << std::endl;
 
+TO SPECIFY THE NUMBER OF NUMBER WHEN DEALING WITH FLOATS:
+cout << "Default output of pi: " << M_PI << endl;  //where M_PI = 3.141592653589793
+cout << "pi reduced to 4 digits after the decimal: ";
+cout << fixed << setprecision(4) << M_PI << endl;
+
+INITIALIZE FLOAT AND ASSIGN:
+double <floatName> = 8.0
