@@ -1,0 +1,352 @@
+GITBASH COMMAND TO BUILD .CPP FILE
+g++ filename.cpp -o filename.exe
+
+GITBASH COMMAND TO RUN .exe FILE AFTER BUILD
+./filename.exe
+
+IMPORT STD LIBRARY// LIKE IMPORT STATEMENT IN PYTHON
+#include <iostream>
+
+CREATING A FUNCTION
+int main() {
+    std::cout << 'Hello World';
+    return 0;
+};
+
+CREATING A VARIABLE
+#include <string>
+int num1 = 8
+int num2 = 24
+int my_age = 36;
+double weight = 122;
+std::string message = "My name is Viphakone Monty and I am ";
+std::string message2 = ", I also weigh ";
+
+REPLACEMENT TO REPEATING std::cout
+using namespace std;
+
+PRINTOUT INT WITH STR
+std::cout << message << my_age << message2 << weight << std::endl;
+
+
+TO SPECIFY THE NUMBER OF NUMBER WHEN DEALING WITH FLOATS AND USING PI
+#include <iostream>
+#include <iomanip>
+cout << "Default output of pi: " << M_PI << endl;  //where M_PI = 3.141592653589793
+cout << "pi reduced to 4 digits after the decimal: ";
+cout << fixed << setprecision(4) << M_PI << endl;
+
+INITIALIZE FLOAT AND ASSIGN:
+double <floatName> = 8.0
+
+TO THE POWER OF SYNTAX
+#include <cmath>
+pow(base, exponent)
+
+Scientific notation is useful for representing floating-
+point numbers that are much greater than or much less than 
+0, such as 6.02 x 1023. A floating-point literal using 
+scientific notation is written using an e preceding the 
+power-of-10 exponent, as in 6.02e23 to represent 
+6.02 x 1023. The e stands for exponent. 
+Likewise, 0.001 is 1 x 10-3 and can be written as 1.0e-3. 
+For a floating-point literal, good practice is to make the leading digit non-zero.
+example:
+double <floatName> = 6.02e23 // eql to 6.02 x 10 ^ 23
+
+
+INITIALIZE VARIABLE WITH AUTOMATIC DATA TYPE BASED ON ASSIGNMENT
+auto <VARIABLE_name> = 8 
+//the output: int
+Example:
+#include <iostream>
+#include <typeinfo>
+using namespace std;
+ 
+int main() {
+   auto x = 1;
+ 
+   cout << typeid(x).name() << endl;
+
+   return 0;
+}
+
+TYPE CASTING/ CHANGING THE DATA TYPE OF VARIABLE
+<varibleName> = static_cast<double>((8 + 2)/2 )
+// above code changes int data type to double 
+
+IF STATEMENT EXAMPLE 
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string str1 = "Hello";
+    std::string str2 = "World";
+
+    // Compare if two strings are equal
+    if (str1 == str2) {
+        std::cout << "The strings are equal." << std::endl;
+    } else {
+        std::cout << "The strings are not equal." << std::endl;
+    }
+
+    return 0;
+}
+
+EXAMPLE OF "if statement" with "and statement" 
+#include <iostream>
+using namespace std;
+
+int main() {
+   char letterToQuit;
+   int  numPresses;
+
+   cin >> letterToQuit;
+   cin >> numPresses;
+
+   if (letterToQuit == 'q'  && numPresses == 2) {
+      cout << "Press the q key 2 times to quit." << endl;
+      };
+
+   return 0;
+}
+
+IF AND OR STATEMENT
+#include <iostream>
+
+int main() {
+    int age = 25;
+    char gender = 'M';
+
+    // Check if age is greater than 18 and gender is 'M', or age is less than or equal to 18 and gender is 'F'
+    if ((age > 18 && gender == 'M') || (age <= 18 && gender == 'F')) {
+        std::cout << "Condition met." << std::endl;
+    } else {
+        std::cout << "Condition not met." << std::endl;
+    }
+
+    return 0;
+}
+
+INPUT FROM CONSOLE: GETS ENTIRE LINE UP TO ENTIRE. USUALLY USED TO GET STRINGS FROM CONSOLE
+getline(cin, firstName);
+getline(cin, lastName);
+
+DECLARING INTEGER ACCORDING TO BIT SIZE
+Declaration	Size	Supported number range	                                                 Standard-defined minimum size
+char myVar;	        8 bits	  -128 to 127	                                                 8 bits
+short myVar;	    16 bits	  -32,768 to 32,767	                                             16 bits
+long myVar;	        32 bits	  -2,147,483,648 to 2,147,483,647	                             32 bits
+long long myVar;	64 bits	  -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807	     64 bits
+int myVar;	        32 bits	  -2,147,483,648 to 2,147,483,647	                             16 bits
+
+
+DIFFERENCE BETWEEN FLOAT AND DOUBLE DECLARATION 
+Declaration	Size	Supported number range
+float x;	32 bits	-3.4x1038 to 3.4x1038
+double x;	64 bits	-1.7x10308 to 1.7x10308
+
+UNASSIGN INTEGER DATA TYPES: USED TO STORE ONLY POSITIVE
+OUTPUTS SUCH AS WEIGHT OR HEIGHT
+Declaration	                Size	Supported number range	         Standard-defined minimum size
+unsigned char myVar;	    8 bits	0 to 255	                     8 bits
+unsigned short myVar;	    16 bits	0 to 65,535	                     16 bits
+unsigned long myVar;	    32 bits	0 to 4,294,967,295	             32 bits
+unsigned long long myVar; 64 bits	0 to 18,446,744,073,709,551,615	 64 bits
+unsigned int myVar;	        32 bits	0 to 4,294,967,295	             16 bits
+
+
+
+SWITCH STATMENT EXAMPLE
+#include <iostream>
+using namespace std;
+
+int main() {
+   int dogAgeYears;
+   int dogAgeMonths;
+
+   cout << "Enter dog's age (in years): ";
+   cin >> dogAgeYears;
+
+   if (dogAgeYears == 0) {
+      cout << "Enter dog's age in months: ";
+      cin  >> dogAgeMonths;
+
+      switch (dogAgeMonths) {
+         case 0:
+         case 1:
+         case 2:
+            cout << "That's 0..14 human months." << endl;
+            break;
+
+         case 3:
+         case 4:
+         case 5:
+         case 6:
+            cout << "That's 1..5 human years." << endl;
+            break;
+
+         case 7:
+         case 8:
+            cout << "That's 5..9 human years." << endl;
+            break;
+
+         case 9:
+         case 10:
+         case 11:
+         case 12:
+            cout << "That's 9..15 human years." << endl;
+            break;
+
+         default:
+            cout << "Invalid input." << endl;
+            break;
+      }
+   }
+   else {
+      cout << "FIXME: Do earlier dog year cases." << endl;
+      switch (dogAgeYears) {
+      }
+   }
+
+   return 0;
+}
+
+BOOLEAN DATA TYPE
+#include <iostream>
+using namespace std;
+
+int main() {
+   int waitTime;
+   int partySize;
+   char day;
+   bool isLargeParty;
+   bool isWeekend;
+   
+   // Get day of reservation
+   cout << "Day of reservation (T/W/R/F/S/U): ";
+   cin >> day;
+   if (day == 'F' || day == 'S' || day == 'U') {
+      isWeekend = true;
+   }
+   else {
+      isWeekend = false;
+   }
+   
+   // Get party size
+   cout << "Enter party size: ";
+   cin  >> partySize;
+   isLargeParty = (partySize > 6);
+   
+   // Determine wait time based on day of week and party size
+   if (isWeekend && !isLargeParty) {
+      waitTime = 30;
+   }
+   else if (!isWeekend && !isLargeParty) {
+      waitTime = 10;
+   }
+   else if (isWeekend && isLargeParty) {
+      waitTime = 45;
+   }
+   else {
+      waitTime = 15;
+   }
+   
+   cout << "Restaurant wait time is " << waitTime
+        << " minutes." << endl;
+   
+   return 0;
+}
+
+STRING CHARACTER ACCESSING// INDEXING STRINGS
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string userWord;
+
+   cout << "Enter a 5-letter word: ";
+   cin  >> userWord;
+
+   cout << "Scrambled: ";
+   cout << userWord.at(3);
+   cout << userWord.at(1);
+   cout << userWord.at(4);
+   cout << userWord.at(0);
+   cout << userWord.at(2);
+   cout << endl;
+
+   return 0;
+}
+
+CHANGING A CHARACTER OF A STRING
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string userWord ="Caterpillar";
+   int replaceIndex;
+   
+   cout << "Enter an index (0-10): ";
+   cin  >> replaceIndex;
+
+   userWord.at(replaceIndex) = '*';
+
+   cout << "Updated string: ";
+   cout << userWord << endl;
+
+   return 0;
+}
+
+
+EXAMPLE OF GETTING LENGTH OF A STRING AND ASSIGNING A CHARACTER TO A POSITION OF STRING
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string userCaption;
+   char lastChar;
+   int lastIndex;
+
+   cout << "Enter a caption: ";
+   getline(cin, userCaption);
+
+   lastIndex = userCaption.size() - 1;
+   lastChar  = userCaption.at(lastIndex);
+
+   if ( (lastChar != '.') && (lastChar != '!') && (lastChar != '?') ) {
+      // User's caption lacked ending punctuation, so add a period
+      userCaption.append(".");
+   }
+
+   cout << "New: ";
+   cout << userCaption << endl;
+
+   return 0;
+}
+
+CHANGING POSITION OF STRINGS
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string userStr;
+	int idx1;
+	int idx2;
+
+   getline(cin, userStr);
+	cin >> idx1;
+	cin >> idx2;
+   userStr.at(idx1) = userStr.at(idx2);
+
+   cout << userStr << endl;
+
+   return 0;
+}
+
+GET THE LAST CHARACTER OF STRING
+if (inputString.at(inputString.size()-1) == charToFind) { cout << "Found match" << endl;}
