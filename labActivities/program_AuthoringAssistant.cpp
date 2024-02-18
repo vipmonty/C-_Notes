@@ -9,7 +9,8 @@ void ExecuteMenu(char option, string &sampleText);
 int GetNumOfWords(const string &text);
 int FindText(const string &searchText, const string &sampleText);
 void ReplaceExclamation(string &text);
-void ShortenSpace(string &text); // Function prototype for ShortenSpace
+void ShortenSpace(string &text);
+int GetNumOfNonWSCharacters(const string &text); // Declaration of GetNumOfNonWSCharacters
 
 int main()
 {
@@ -54,15 +55,7 @@ void ExecuteMenu(char option, string &sampleText)
     {
     case 'c':
     {
-        int count = 0;
-        for (char c : sampleText)
-        {
-            if (!isspace(c))
-            {
-                count++;
-            }
-        }
-        cout << "Number of non-whitespace characters: " << count << endl;
+        cout << "Number of non-whitespace characters: " << GetNumOfNonWSCharacters(sampleText) << endl;
         cout << endl;
         break;
     }
@@ -171,4 +164,18 @@ void ShortenSpace(string &text)
         }
     }
     text = result;
+}
+
+// Function definition for GetNumOfNonWSCharacters
+int GetNumOfNonWSCharacters(const string &text)
+{
+    int count = 0;
+    for (char c : text)
+    {
+        if (!isspace(c))
+        {
+            count++;
+        }
+    }
+    return count;
 }
