@@ -8,6 +8,8 @@ void PrintMenu();
 void ExecuteMenu(char option, string &sampleText);
 int GetNumOfWords(const string &text);
 int FindText(const string &searchText, const string &sampleText);
+void ReplaceExclamation(string &text);
+void ShortenSpace(string &text); // Function prototype for ShortenSpace
 
 int main()
 {
@@ -17,8 +19,8 @@ int main()
          << endl;
     getline(cin, sampleText);
 
-    cout << "You entered: " << sampleText << endl;
-    cout << endl;
+    cout << "You entered: " << sampleText << endl
+         << endl;
 
     char option;
     do
@@ -32,8 +34,6 @@ int main()
     return 0;
 }
 
-// Function definition for PrintMenu
-// Function definition for PrintMenu
 // Function definition for PrintMenu
 void PrintMenu()
 {
@@ -74,20 +74,21 @@ void ExecuteMenu(char option, string &sampleText)
     {
         string searchText;
         cout << "Enter a word or phrase to be found:" << endl;
-        //  << endl;
-        //  cin.ignore(); // Ignore the newline character left in the input buffer
-
         getline(cin, searchText);
-        int instances = FindText(searchText, sampleText);                    // Get the instances count
-        cout << "\"" << searchText << "\" instances: " << instances << endl; // Output in the expected format
-        cout << endl;                                                        // Add a newline after printing the instances count
+        int instances = FindText(searchText, sampleText);
+        cout << "\"" << searchText << "\" instances: " << instances << endl;
+        cout << endl;
         break;
     }
     case 'r':
-        // Implementation for replacing '!' characters
+        ReplaceExclamation(sampleText);                // Call ReplaceExclamation to replace '!' with '.'
+        cout << "Edited text: " << sampleText << endl; // Output the edited string
+        cout << endl;
         break;
     case 's':
-        // Implementation for shortening spaces
+        ShortenSpace(sampleText);                      // Call ShortenSpace to shorten spaces
+        cout << "Edited text: " << sampleText << endl; // Output the edited string
+        cout << endl;
         break;
     case 'q':
         cout << "Choose an option:"; // Display "Choose an option:" when 'q' is entered
@@ -124,20 +125,6 @@ int GetNumOfWords(const string &text)
 }
 
 // Function definition for FindText
-// int FindText(const string &searchText, const string &sampleText)
-// {
-//     int count = 0;
-//     size_t pos = sampleText.find(searchText);
-//     while (pos != string::npos)
-//     {
-//        count++;
-//        pos = sampleText.find(searchText, pos + 1);
-//     }
-//     return count;
-// }
-// Function definition for FindText
-// Function definition for FindText
-// Function definition for FindText
 int FindText(const string &searchText, const string &sampleText)
 {
     int count = 0;
@@ -147,7 +134,41 @@ int FindText(const string &searchText, const string &sampleText)
         count++;
         pos += searchText.length(); // Move past the found searchText to avoid overlapping matches
     }
-    //  cout << "\"" << searchText << "\" instances: " << count << endl; // Output in the expected format
-
     return count;
+}
+
+// Function definition for ReplaceExclamation
+void ReplaceExclamation(string &text)
+{
+    for (char &c : text)
+    {
+        if (c == '!')
+        {
+            c = '.'; // Replace '!' with '.'
+        }
+    }
+}
+
+// Function definition for ShortenSpace
+void ShortenSpace(string &text)
+{
+    string result;
+    bool lastWasSpace = false;
+    for (char c : text)
+    {
+        if (isspace(c))
+        {
+            if (!lastWasSpace)
+            {
+                result += ' '; // Add a single space to the result string
+            }
+            lastWasSpace = true;
+        }
+        else
+        {
+            result += c;
+            lastWasSpace = false;
+        }
+    }
+    text = result;
 }
